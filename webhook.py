@@ -5,6 +5,8 @@ import threading
 import time
 from colorama import Fore, init
 from dhooks import Webhook, Embed
+import discord
+import json
 
 # Initialize colorama
 init(autoreset=True)
@@ -22,7 +24,7 @@ def setTitle(title):
 
 def transition():
     clear()
-    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Transitioning...\n")
+    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Loading...\n")
     time.sleep(1)
 
 def print_logo():
@@ -48,7 +50,9 @@ def main():
     \n          {Fore.YELLOW}[{Fore.WHITE}5{Fore.YELLOW}]{Fore.WHITE} Avatar Changer
     \n          {Fore.YELLOW}[{Fore.WHITE}6{Fore.YELLOW}]{Fore.WHITE} Embed Maker
     \n          {Fore.YELLOW}[{Fore.WHITE}7{Fore.YELLOW}]{Fore.WHITE} Name Changer
-    \n          {Fore.YELLOW}[{Fore.WHITE}8{Fore.YELLOW}]{Fore.WHITE} Bulk Sender
+    \n          {Fore.YELLOW}[{Fore.WHITE}8{Fore.YELLOW}]{Fore.WHITE} Poll Creator
+    \n          {Fore.YELLOW}[{Fore.WHITE}9{Fore.YELLOW}]{Fore.WHITE} Delete all Messages (Patched)
+    \n          {Fore.YELLOW}[{Fore.WHITE}10{Fore.YELLOW}]{Fore.WHITE} Exit
     \n""")
             choice = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Choice: """)
 
@@ -75,14 +79,112 @@ def main():
                 name_changer()
             elif choice == '8':
                 transition()
-                bulk_message_sender()
+                create_poll_menu()
+            elif choice == '9':
+                transition()
+                delete_all_messages_menu()
+            elif choice == '10':
+                print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Exiting program.")
+                sys.exit(0)
             else:
                 clear()
-                print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid choice. Please choose from 1 to 7.")
+                print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid choice. Please choose from 0 to 9.")
                 time.sleep(2)
     except KeyboardInterrupt:
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Exiting program.")
         sys.exit(0)
+
+def delete_messages(webhook_url, delete_all=False):
+    try:
+        if delete_all:
+            # Delete all messages on the channel
+            response = requests.delete(f"{webhook_url}/messages")
+            if response.status_code == 204:
+                print(f"{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}✓{Fore.YELLOW}]{Fore.WHITE} All messages deleted successfully.")
+            else:
+                print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}✗{Fore.YELLOW}]{Fore.WHITE} Failed to delete all messages. Status code: {response.status_code}")
+        else:
+            print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}✗{Fore.YELLOW}]{Fore.WHITE} Invalid operation. Please choose to delete all messages.")
+    except requests.exceptions.RequestException as e:
+        print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}✗{Fore.YELLOW}]{Fore.WHITE} Failed to delete messages. Error: {e}")
+
+
+
+def delete_all_messages_menu():
+    clear()
+    setTitle("Delete All Messages")
+    print_logo()
+    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to delete all messages ")
+    webhook_url = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: """)
+
+    confirm = input(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Are you sure you want to delete all messages on the channel? (y/n): ")
+
+    if confirm.lower() == 'y':
+        delete_messages(webhook_url, delete_all=True)
+    else:
+        print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Operation canceled.")
+
+    input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
+
+
+
+
+
+
+
+
+
+
+
+def create_poll_menu():
+    clear()
+    setTitle("Poll Creator")
+    print_logo()
+    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to send the poll message ")
+    webhook_url = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: """)
+    
+    print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the question for the poll ")
+    question = input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Question: ")
+
+    options = []
+    while True:
+        option = input(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter an option for the poll (or 'done' to finish): ")
+        if option.lower() == 'done':
+            break
+        options.append(option)
+
+    create_poll(webhook_url, question, options)  # Call create_poll with user inputs
+    input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
+
+def create_poll(webhook_url, question, options):
+    # Prepare the poll message
+    poll_message = f"**{question}**\n\n"
+
+    # Prepare the options with reactions (up to 10 options)
+    reactions = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟']
+
+    for i, option in enumerate(options):
+        poll_message += f"{reactions[i]} {option}\n"
+
+    # Prepare JSON payload for the webhook message
+    payload = {
+        "content": poll_message
+    }
+
+    # Send POST request to the webhook URL
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    try:
+        response = requests.post(webhook_url, data=json.dumps(payload), headers=headers)
+
+        if response.status_code == 204:
+            print(f"{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}!{Fore.YELLOW}]{Fore.WHITE} Poll created successfully.")
+        else:
+            print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Failed to create poll. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Failed to create poll. Error: {e}")
+
 
 def name_changer():
     clear()
@@ -104,44 +206,13 @@ def name_changer():
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error changing WebHook name: {e}")
         input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
-
-def bulk_message_sender():
-    setTitle("Bulk Message Sender")
-    clear()
-    print_logo()
-    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to send a .txt file as some messages ")
-    webhook_url = input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook Link: ")
-
-    try:
-        webhook = Webhook(webhook_url)
-    except Exception as e:
-        print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid WebHook URL: {e}")
-        time.sleep(2)
-        return
-
-    print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the path to the text file with messages ")
-    file_path = input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} File Path: ")
-
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            messages = file.readlines()
-    except FileNotFoundError:
-        print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} File not found. Please check the path.")
-        input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
-        return
-
-    print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Number of messages found: {len(messages)}\n")
-
-
-
-
 def webhook_spam():
-    setTitle("WebHook Spammer")
     clear()
+    setTitle("WebHook Spammer")
     print_logo()
-    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook you want to spam ")
-    webhook_url = input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook Link: ")
-
+    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to spam ")
+    webhook_url = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: """)
+    
     try:
         webhook = Webhook(webhook_url)
     except Exception as e:
@@ -155,7 +226,6 @@ def webhook_spam():
     amount = int(input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Amount: "))
 
     def spam():
-        nonlocal webhook_url
         for _ in range(amount):
             webhook.send(message)
             update_message_count(webhook_url)
@@ -192,6 +262,11 @@ def webhook_remover():
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Webhook could not be deleted. Error: {e}")
         input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
+
+
+
+    
+
 def check_webhook_validity():
     clear()
     setTitle("WebHook Validity Checker")
@@ -200,56 +275,42 @@ def check_webhook_validity():
     webhook = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: """)
     
     try:
-        response = requests.get(webhook.rstrip())
+        response = requests.get(webhook)
         if response.status_code == 200:
             print(f"\n{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}!{Fore.YELLOW}]{Fore.WHITE} Webhook is valid")
         else:
             print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Webhook is invalid")
-            
-        input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
     except Exception as e:
-        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error checking webhook validity: {e}")
-        input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
-
-    main()
+        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error checking Webhook validity: {e}")
+    input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
 def webhook_details_extended():
     clear()
-    setTitle("Extended WebHook Details")
+    setTitle("WebHook Details")
     print_logo()
-    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to fetch extended details ")
+    print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to view its details ")
     webhook = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: """)
 
     try:
-        response = requests.get(webhook.rstrip())
+        response = requests.get(webhook)
         if response.status_code == 200:
-            webhook_data = response.json()
-            print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook ID       : {webhook_data.get('id')}")
-            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Guild ID : {webhook_data.get('guild_id')}")
-            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Channel ID: {webhook_data.get('channel_id')}")
-            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Token    : {webhook_data.get('token')}")
-            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Name     : {webhook_data.get('name')}")
+            details = response.json()
+            avatar_url = f"https://cdn.discordapp.com/avatars/{details['id']}/{details['avatar']}.png" if details['avatar'] else "No Avatar"
 
-            # Display the avatar image if available
-            if 'avatar' in webhook_data:
-                avatar_url = f"https://cdn.discordapp.com/avatars/{webhook_data['id']}/{webhook_data['avatar']}"
-                print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Avatar   : {avatar_url}")
-            else:
-                print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Avatar   : Not set")
-
-            # Fetch and display user details if available
-            if 'user' in webhook_data and webhook_data['user']:
-                user = webhook_data['user']
-                print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook User     : {user.get('username', 'N/A')}#{user.get('discriminator', 'N/A')}")
-
+            print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Name: {details['name']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Channel ID: {details['channel_id']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Guild ID: {details['guild_id']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook ID: {details['id']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Avatar: {avatar_url}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Token: {details['token']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook Application ID: {details['application_id']}")
+            print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} WebHook URL: {details['url']}")
         else:
-            print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Failed to fetch extended details. Status code: {response.status_code}")
-
-        input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
+            print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid WebHook URL")
     except Exception as e:
-        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error fetching extended webhook details: {e}")
+        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error fetching WebHook details: {e}")
+    input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
-    main()
 
 
 def avatar_changer():
@@ -261,27 +322,17 @@ def avatar_changer():
 
     try:
         webhook = Webhook(webhook_url)
-        print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter new avatar image file path or URL ")
-        avatar_path = input(f"{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Avatar Path/URL: ")
+        print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the path to the new avatar image ")
+        image_path = input(f"""{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Image Path: """)
 
-        if avatar_path.startswith('http'):
-            # If it's a URL, download the image
-            response = requests.get(avatar_path)
-            avatar_data = response.content
-        else:
-            # Otherwise, treat it as a local file path
-            with open(avatar_path, 'rb') as avatar_file:
-                avatar_data = avatar_file.read()
+        with open(image_path, 'rb') as f:
+            webhook.modify(avatar=f.read())
 
-        # Set the new avatar
-        webhook.modify(avatar=avatar_data)
-
-        print(f"\n{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}!{Fore.YELLOW}]{Fore.WHITE} Avatar changed successfully")
+        print(f"\n{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}!{Fore.YELLOW}]{Fore.WHITE} WebHook avatar changed successfully")
         input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
     except Exception as e:
-        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error changing avatar: {e}")
+        print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error changing WebHook avatar: {e}")
         input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
-
 
 def create_embed():
     clear()
@@ -343,7 +394,5 @@ def create_embed():
     input(f"\n{Fore.YELLOW}[{Fore.BLUE}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
-
