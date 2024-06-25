@@ -1,1 +1,4 @@
-
+colorama
+dhooks
+requests
+discord
