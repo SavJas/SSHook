@@ -29,8 +29,9 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
     <!-- First Row -->
     <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
-        <img src="https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb" alt="Image 1" style="max-width: 100%; height: auto;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/475c2db5-9b90-4160-a022-a26439994690" alt="Image 1" style="max-width: 100%; height: auto;">
 </div>
+
 
 
 
