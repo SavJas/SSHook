@@ -2,7 +2,7 @@
 
 # LysHook - Discord Webhook Utility
 
-LysHook is a potent utility designed for leveraging Discord webhooks with powerful hacking capabilities. Tailored for ethical hacking and security testing, LysHook equips users with a versatile toolkit to explore and manipulate webhook functionalities securely.
+LysHook is a potent utility designed for leveraging Discord webhooks with powerful hacking capabilities. Tailored for ethical hacking and security testing, LysHook equips users with a versatile toolkit to explore and manipulate webhook functionalities securely. Make sure to test it on your webhook/server.
 
 ## Table of Contents
 - [Features](#features)
