@@ -1,5 +1,5 @@
 ![image](https://github.com/SavJas/LysHook/assets/86425637/69eba8a2-c9a9-498c-93be-42be7e742e31)
-# Discord Webhook Tool
+# LysHook - Discord Webhook Tool
 
 This is a powerful tool for managing Discord webhooks, featuring various functionalities such as spamming messages, deleting messages, changing webhook names, avatars, and creating polls.
 
@@ -23,4 +23,32 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
 
 ## Installation
-Clone the repository:
+Clone the repository: 
+```git clone https://github.com/yourusername/discord-webhook-tool.git```
+
+## Install the required libraries:
+pip install -r requirements.txt
+
+## Usage
+Run the main script to start the tool:
+```python webhook_tool.py```
+
+## Menu Options
+Upon running the tool, you will be presented with a menu offering various options:
+- Spammer: Send multiple messages to a webhook.
+- Remover: Delete a specified webhook.
+- Check Validity: Check if a webhook URL is valid.
+- WebHook Details: Display detailed information about a webhook.
+- Avatar Changer: Change the avatar of a webhook.
+- Embed Maker: Create and send a custom embed message.
+- Name Changer: Change the name of a webhook.
+- Poll Creator: Create and send a poll message.
+- Delete all Messages (Patched): Delete all messages in a channel (currently patched).
+- Exit: Exit the program.
+
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
