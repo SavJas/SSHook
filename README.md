@@ -22,7 +22,7 @@ LysHook is a potent utility designed for leveraging Discord webhooks with powerf
 - **Embed Maker:** Create and send custom embeds to a webhook.
 - **Name Changer:** Change the name of a webhook.
 - **Poll Creator:** Create and send a poll message to a webhook.
-- **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
+- **Delete All Messages (Patched):** Delete all messages in a channel via the webhook.
 
 
 ## Showcase
