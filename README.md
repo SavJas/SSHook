@@ -10,6 +10,7 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - [Menu Options](#menu-options)
 - [Contributing](#contributing)
 - [License](#license)
+- [License](#images)
 
 ## Features
 - **Webhook Spammer:** Send a specified number of messages to a webhook.
@@ -21,6 +22,29 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - **Name Changer:** Change the name of a webhook.
 - **Poll Creator:** Create and send a poll message to a webhook.
 - **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
+
+## Images
+## Example Image Stacking
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image1.jpg" alt="Image 1" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image2.jpg" alt="Image 2" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image3.jpg" alt="Image 3" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image4.jpg" alt="Image 4" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image5.jpg" alt="Image 5" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+        <img src="image6.jpg" alt="Image 6" style="max-width: 100%; height: auto;">
+    </div>
+</div>
 
 ## Installation
 Clone the repository: 
