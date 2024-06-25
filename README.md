@@ -25,6 +25,7 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 ## Installation
 Clone the repository: 
 ```git clone https://github.com/yourusername/discord-webhook-tool.git```
+or do it manually, download files and set it up.
 
 ## Install the required libraries:
 pip install -r requirements.txt
