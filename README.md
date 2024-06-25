@@ -24,27 +24,13 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
 
 ## Images
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <div style="flex: 0![Screenshot 2024-06-25 155017](https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb)
- 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154910](https://github.com/SavJas/LysHook/assets/86425637/cbeb698a-e11a-41b2-a19b-a5638d51908c)" alt="Image 1" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154945](https://github.com/SavJas/LysHook/assets/86425637/4c3ed6dd-151e-4ac9-a725-ab33afdabb6e)" alt="Image 2" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154822](https://github.com/SavJas/LysHook/assets/86425637/9d3b17c5-ac3c-4906-9ff7-0544cf0b08d5)" alt="Image 3" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154835](https://github.com/SavJas/LysHook/assets/86425637/3bb6a93b-d473-4cda-96f0-6a9f7675b44c)" alt="Image 4" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154835](https://github.com/SavJas/LysHook/assets/86425637/3bb6a93b-d473-4cda-96f0-6a9f7675b44c)" alt="Image 5" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
-        <img src="![Screenshot 2024-06-25 154856](https://github.com/SavJas/LysHook/assets/86425637/d3928192-ddcb-4b1f-956d-c38032cf7958)" alt="Image 6" style="max-width: 100%; height: auto;">
-    </div>
-</div>
+![Image 1](https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb)
+![Image 2](https://github.com/SavJas/LysHook/assets/86425637/cbeb698a-e11a-41b2-a19b-a5638d51908c)
+![Image 3](https://github.com/SavJas/LysHook/assets/86425637/4c3ed6dd-151e-4ac9-a725-ab33afdabb6e)
+![Image 4](https://github.com/SavJas/LysHook/assets/86425637/9d3b17c5-ac3c-4906-9ff7-0544cf0b08d5)
+![Image 5](https://github.com/SavJas/LysHook/assets/86425637/3bb6a93b-d473-4cda-96f0-6a9f7675b44c)
+![Image 6](https://github.com/SavJas/LysHook/assets/86425637/d3928192-ddcb-4b1f-956d-c38032cf7958)
+
 
 ## Installation
 Clone the repository: 
