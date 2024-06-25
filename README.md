@@ -1,7 +1,7 @@
 ![image](https://github.com/SavJas/LysHook/assets/86425637/69eba8a2-c9a9-498c-93be-42be7e742e31)
-# LysHook - Comprehensive Discord Webhook Management Tool
+# LysHook - Discord Webhook Utility
 
-LysHook stands as an indispensable utility designed to streamline the management of Discord webhooks with a robust array of features. Whether you're moderating communities, organizing events, or enhancing engagement, LysHook empowers administrators with essential functionalities tailored for seamless webhook administration.
+LysHook is a potent utility designed for leveraging Discord webhooks with powerful hacking capabilities. Tailored for ethical hacking and security testing, LysHook equips users with a versatile toolkit to explore and manipulate webhook functionalities securely.
 
 ## Table of Contents
 - [Features](#features)
