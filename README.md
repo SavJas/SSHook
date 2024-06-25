@@ -1,7 +1,7 @@
 ![image](https://github.com/SavJas/LysHook/assets/86425637/69eba8a2-c9a9-498c-93be-42be7e742e31)
-# LysHook - Discord Webhook Tool
+# LysHook - Comprehensive Discord Webhook Management Tool
 
-This is a powerful tool for managing Discord webhooks, featuring various functionalities such as spamming messages, deleting messages, changing webhook names, avatars, and creating polls.
+LysHook stands as an indispensable utility designed to streamline the management of Discord webhooks with a robust array of features. Whether you're moderating communities, organizing events, or enhancing engagement, LysHook empowers administrators with essential functionalities tailored for seamless webhook administration.
 
 ## Table of Contents
 - [Features](#features)
