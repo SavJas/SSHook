@@ -24,12 +24,31 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
 
 ## Images
-![Image 1](https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb)
-![Image 2](https://github.com/SavJas/LysHook/assets/86425637/cbeb698a-e11a-41b2-a19b-a5638d51908c)
-![Image 3](https://github.com/SavJas/LysHook/assets/86425637/4c3ed6dd-151e-4ac9-a725-ab33afdabb6e)
-![Image 4](https://github.com/SavJas/LysHook/assets/86425637/9d3b17c5-ac3c-4906-9ff7-0544cf0b08d5)
-![Image 5](https://github.com/SavJas/LysHook/assets/86425637/3bb6a93b-d473-4cda-96f0-6a9f7675b44c)
-![Image 6](https://github.com/SavJas/LysHook/assets/86425637/d3928192-ddcb-4b1f-956d-c38032cf7958)
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <!-- First Row -->
+    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb" alt="Image 1" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/cbeb698a-e11a-41b2-a19b-a5638d51908c" alt="Image 2" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/4c3ed6dd-151e-4ac9-a725-ab33afdabb6e" alt="Image 3" style="max-width: 100%; height: auto;">
+    </div>
+
+  
+  <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/9d3b17c5-ac3c-4906-9ff7-0544cf0b08d5" alt="Image 4" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/3bb6a93b-d473-4cda-96f0-6a9f7675b44c" alt="Image 5" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
+        <img src="https://github.com/SavJas/LysHook/assets/86425637/d3928192-ddcb-4b1f-956d-c38032cf7958" alt="Image 6" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
 
 
 ## Installation
