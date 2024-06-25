@@ -23,15 +23,13 @@ This is a powerful tool for managing Discord webhooks, featuring various functio
 - **Poll Creator:** Create and send a poll message to a webhook.
 - **Delete All Messages:** Delete all messages in a channel via the webhook (Patched).
 
-## Images
 
-## Images
+## Showcase
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
     <!-- First Row -->
     <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
         <img src="https://github.com/SavJas/LysHook/assets/86425637/056fb48f-782d-4325-9bce-466df5bf56eb" alt="Image 1" style="max-width: 100%; height: auto;">
-        <p style="font-size: 12px;">Image 1</p>
 </div>
 
 
