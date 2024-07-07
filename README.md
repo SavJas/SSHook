@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 ## Usage
 Run the main script to start the tool:
-```python webhook_tool.py```
+```sshook.py```
 
 ## Menu Options
 Upon running the tool, you will be presented with a menu offering various options:
