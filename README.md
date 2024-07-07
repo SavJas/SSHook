@@ -34,7 +34,7 @@ SSHook is a potent utility designed for leveraging Discord webhooks with powerfu
     
 ## Installation
 Clone the repository: 
-```git clone https://github.com/yourusername/discord-webhook-tool.git```
+```git clone https://github.com/SavJas/SSHook-Utility.git```
 or do it manually, download files and set it up.
 
 ## Install the required libraries:
