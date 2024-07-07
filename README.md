@@ -1,4 +1,5 @@
-![171932125992715076](https://github.com/SavJas/LysHook-Utility/assets/86425637/825bf93b-25d9-4c0e-8341-53ffd4fe0e0d)
+![image](https://github.com/SavJas/SSHook-Utility/assets/86425637/2a723d49-1f01-4e0e-80bc-60129c1e72d2)
+
 
 # SSHook - Discord Webhook Utility
 
