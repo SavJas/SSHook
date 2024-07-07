@@ -54,7 +54,7 @@ Upon running the tool, you will be presented with a menu offering various option
 - Embed Maker: Create and send a custom embed message.
 - Name Changer: Change the name of a webhook.
 - Poll Creator: Create and send a poll message.
-- Delete all Messages (Patched): Delete all messages in a channel (currently patched).
+- Delete all Messages (Patched): Delete all messages in a channel (currently patched, working on it!).
 - Exit: Exit the program.
 
 ## Contributing
