@@ -27,12 +27,8 @@ SSHook is a potent utility designed for leveraging Discord webhooks with powerfu
 
 ## Showcase
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-    <!-- First Row -->
-    <div style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px); text-align: center;">
-        <img src="![image](https://github.com/SavJas/SSHook-Utility/assets/86425637/cebef284-224f-4418-bd55-be67725dfb23)
-" alt="Image 1" style="max-width: 100%; height: auto;">
-</div>
+![image](https://github.com/SavJas/SSHook-Utility/assets/86425637/9c563937-b2ae-4670-a241-76063ada76db)
+
     
 ## Installation
 Clone the repository: 
