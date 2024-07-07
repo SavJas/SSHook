@@ -1,8 +1,8 @@
 ![171932125992715076](https://github.com/SavJas/LysHook-Utility/assets/86425637/825bf93b-25d9-4c0e-8341-53ffd4fe0e0d)
 
-# LysHook - Discord Webhook Utility
+# SSHook - Discord Webhook Utility
 
-LysHook is a potent utility designed for leveraging Discord webhooks with powerful hacking capabilities. Tailored for ethical hacking and security testing, LysHook equips users with a versatile toolkit to explore and manipulate webhook functionalities securely. Make sure to test it on your webhook/server.
+SSHook is a potent utility designed for leveraging Discord webhooks with powerful hacking capabilities. Tailored for ethical hacking and security testing, SSHook equips users with a versatile toolkit to explore and manipulate webhook functionalities securely. Make sure to test it on your webhook/server.
 
 ## Table of Contents
 - [Features](#features)
