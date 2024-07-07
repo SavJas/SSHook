@@ -13,7 +13,6 @@ SSHook is a potent utility designed for leveraging Discord webhooks with powerfu
 - [Menu Options](#menu-options)
 - [Contributing](#contributing)
 - [License](#license)
-- [License](#images)
 
 ## Features
 - **Webhook Spammer:** Send a specified number of messages to a webhook.
