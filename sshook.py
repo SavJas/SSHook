@@ -32,13 +32,10 @@ from dhooks import Webhook, Embed
 import discord
 import json
 
-# Initialize colorama
 init(autoreset=True)
 
-# Global variable to store message counts for each webhook URL
 message_count = {}
 
-# Helper functions
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -81,7 +78,7 @@ def main():
           {Fore.YELLOW}[{Fore.WHITE}5{Fore.YELLOW}]{Fore.WHITE} Avatar Changer
           
           {Fore.YELLOW}[{Fore.WHITE}6{Fore.YELLOW}]{Fore.WHITE} Embed Maker
-    """)  # add a space after the triple quotes for better spacing
+    """) 
 
             choice = input(f"""{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Choice: """)
 
@@ -126,7 +123,6 @@ def main():
 def delete_messages(webhook_url, delete_all=False):
     try:
         if delete_all:
-            # Delete all messages on the channel
             response = requests.delete(f"{webhook_url}/messages")
             if response.status_code == 204:
                 print(f"{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}✓{Fore.YELLOW}]{Fore.WHITE} All messages deleted successfully.")
@@ -170,25 +166,21 @@ def create_poll_menu():
             break
         options.append(option)
 
-    create_poll(webhook_url, question, options)  # Call create_poll with user inputs
+    create_poll(webhook_url, question, options) 
     input(f"\n{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
 def create_poll(webhook_url, question, options):
-    # Prepare the poll message
     poll_message = f"**{question}**\n\n"
 
-    # Prepare the options with reactions (up to 10 options)
     reactions = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟']
 
     for i, option in enumerate(options):
         poll_message += f"{reactions[i]} {option}\n"
 
-    # Prepare JSON payload for the webhook message
     payload = {
         "content": poll_message
     }
 
-    # Send POST request to the webhook URL
     headers = {
         'Content-Type': 'application/json'
     }
@@ -202,7 +194,6 @@ def create_poll(webhook_url, question, options):
     except requests.exceptions.RequestException as e:
         print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Failed to create poll. Error: {e}")
 
-# Webhook spammer function
 def webhook_spam():
     clear()
     setTitle("WebHook Spammer")
@@ -230,7 +221,7 @@ def webhook_spam():
                 print(f"{Fore.YELLOW}[{Fore.WHITE}Sent.{Fore.YELLOW}]")
             except requests.exceptions.HTTPError as ex:
                 print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Failed to send message: {ex}")
-            time.sleep(1)  # Default delay of 1 second between each message
+            time.sleep(1)
 
     spam_thread = threading.Thread(target=spam)
     spam_thread.start()
@@ -334,7 +325,6 @@ def create_embed():
 
     print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Let's create a custom embed message:\n")
 
-    # Prompt user for embed details
     title = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Enter the title of the embed: ")
     description = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Enter the description of the embed: ")
     color = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Enter the color of the embed in hex format (e.g., ff0000 for red): ")
@@ -350,12 +340,11 @@ def create_embed():
     embed.title = title
     embed.description = description
 
-    # Convert color input to integer
     try:
-        color = int(color.replace('#', '0x'), 16)  # Convert hex string to integer
+        color = int(color.replace('#', '0x'), 16) 
     except ValueError:
         print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid color format. Using default color.")
-        color = 0x00FF00  # Default to green if input is invalid
+        color = 0x00FF00 
 
     embed.color = color
 
@@ -375,7 +364,6 @@ def create_embed():
         embed.set_author(name=author_name, icon_url=author_icon)
 
     try:
-        # Send the embed message
         webhook_url = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to send the embed message: ")
         webhook = Webhook(webhook_url)
         webhook.send(embed=embed)
@@ -407,6 +395,5 @@ def name_changer():
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error changing WebHook name: {e}")
         input(f"\n{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
-# Main entry point
 if __name__ == "__main__":
     main()
