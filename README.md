@@ -1,6 +1,3 @@
-![image](https://github.com/SavJas/SSHook-Utility/assets/86425637/82cfaa8c-b590-4468-b643-a3100f7bfa8a)
-
-
 
 # SSHook - Discord Webhook Utility
 
