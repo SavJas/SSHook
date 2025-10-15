@@ -1,0 +1,6 @@
+colorama
+dhooks
+requests
+discord
+json
+threading
