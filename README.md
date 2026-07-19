@@ -6,15 +6,15 @@
 
 ## Features
 
-- 🚀 Send messages through Discord webhooks
-- 🗑 Delete webhooks
-- ✅ Validate webhook URLs
-- 📄 View webhook information
-- 🖼 Change webhook avatar
-- ✏️ Change webhook name
-- 🎨 Interactive Embed Creator
-- 📊 Poll Creator
-- 🖥 Clean terminal interface
+-  Send messages through Discord webhooks
+-  Delete webhooks
+-  Validate webhook URLs
+-  View webhook information
+-  Change webhook avatar
+-  Change webhook name
+-  Interactive Embed Creator
+-  Poll Creator
+-  Clean terminal interface
 
 ---
 
