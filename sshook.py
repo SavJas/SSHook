@@ -244,13 +244,12 @@ def name_changer():
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Error changing WebHook name: {e}")
         input(f"\n{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
-#create an embed option (chatgpt helped on this one)
+#create an embed option
 def create_embed():
     clear()
     setTitle("Embed Maker")
     print_logo()
 
-    # ✅ Ask for webhook URL first
     print(f"{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Enter the WebHook URL to send the embed message ")
     webhook_url = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} WebHook URL: ")
 
@@ -259,9 +258,8 @@ def create_embed():
     except Exception as e:
         print(f"{Fore.YELLOW}[{Fore.LIGHTRED_EX}!{Fore.YELLOW}]{Fore.WHITE} Invalid WebHook URL: {e}")
         time.sleep(2)
-        return  # exit function if invalid
+        return  #exit function if invalid
 
-    # ✅ Then ask for embed details
     print(f"\n{Fore.YELLOW}[{Fore.WHITE}+{Fore.YELLOW}]{Fore.WHITE} Let's create a custom embed message:\n")
 
     title = input(f"{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Enter the title of the embed: ")
@@ -278,8 +276,7 @@ def create_embed():
     embed = Embed()
     embed.title = title
     embed.description = description
-
-    # ✅ Handle color safely
+    
     try:
         color = int(color.replace('#', '0x'), 16)
     except ValueError:
@@ -298,7 +295,6 @@ def create_embed():
     if author_name or author_icon:
         embed.set_author(name=author_name, icon_url=author_icon)
 
-    # ✅ Send the embed
     try:
         webhook.send(embed=embed)
         print(f"\n{Fore.YELLOW}[{Fore.LIGHTGREEN_EX}!{Fore.YELLOW}]{Fore.WHITE} Embed message sent successfully")
@@ -329,7 +325,7 @@ def create_poll_menu():
     input(f"\n{Fore.YELLOW}[{Fore.RED}#{Fore.YELLOW}]{Fore.WHITE} Press ENTER to continue")
 
 
-
+#---------------------------------------------------
 def create_poll(webhook_url, question, options):
     poll_message = f"**{question}**\n\n"
 
@@ -357,4 +353,3 @@ def create_poll(webhook_url, question, options):
 
 if __name__ == "__main__":
     main()
-
