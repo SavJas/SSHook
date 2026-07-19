@@ -43,7 +43,7 @@ Run
 python main.py
 ```
 
-or simply run setup.bat
+<h3>or simply run setup.bat<h3/>
 
 ---
 
