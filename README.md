@@ -1,39 +1,59 @@
 # SSHook
 
-> A fast and easy to use discord webhook tool designed for managing, customizing, and automating webhooks with a simple ui.
+> A fast and easy to use discord webhook tool that allows you to fully control webhooks without being the owner of it just from its webhook url with a simple ui.
 
-<img width="1168" height="651" alt="image" src="https://github.com/user-attachments/assets/059a5fa4-e25e-4ec8-93bb-73d3a0156b65" />
+---
 
 ## Features
 
--  Fast and lightweight
--  Easy integration
--  Minimal dependencies
--  Simple API
--  Custom request modification
--  Easy to understand
+- 🚀 Send messages through Discord webhooks
+- 🗑 Delete webhooks
+- ✅ Validate webhook URLs
+- 📄 View webhook information
+- 🖼 Change webhook avatar
+- ✏️ Change webhook name
+- 🎨 Interactive Embed Creator
+- 📊 Poll Creator
+- 🖥 Clean terminal interface
+
+---
+
+## Preview
+
+<img width="1168" height="651" alt="image" src="https://github.com/user-attachments/assets/059a5fa4-e25e-4ec8-93bb-73d3a0156b65" />
 
 ## Installation
 
-Clone the repository:
+Clone the repository
 
 ```bash
 git clone https://github.com/SavJas/SSHook.git
+cd SSHook
 ```
 
-or download the latest release.
+Install dependencies
 
-Then open setup.bat and youre ready to go
+```bash
+pip install -r requirements.txt
+```
 
-## Why SSHook?
+Run
 
-SSHook was built to provide a simple way to intercept, inspect, and modify data without requiring owning the hook or through discord so you can pass it down to discord server devs and many many more.
+```bash
+python main.py
+```
 
-## Contributing
+or simply run setup.bat
 
-Contributions are welcome!
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a Pull Request
+
+## Disclaimer
+
+This project is intended for educational purposes and for managing webhooks that you own or are authorized to use. Always respect Discord's Terms of Service and avoid abusive or unauthorized use.
+
+---
+
+# Improvement ideas or contributing
+
+You can send me a message on discord ---> sjvxxs
