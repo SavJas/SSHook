@@ -56,4 +56,4 @@ This project is intended for educational purposes and for managing webhooks that
 
 # Improvement ideas or contributing
 
-You can send me a message on discord ---> sjvxxs
+You can send me a message on discord ---> <b>sjvxxs<b/>
