@@ -50,7 +50,7 @@ python main.py
 
 ## Disclaimer
 
-This project is intended for educational purposes and for managing webhooks that you own or are authorized to use. Always respect Discord's Terms of Service and avoid abusive or unauthorized use.
+This project is intended for educational purposes and for managing webhooks that you are authorized to use. Always respect Discord's Terms of Service and avoid abusive or unauthorized use.
 
 ---
 
