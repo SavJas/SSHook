@@ -3,12 +3,15 @@ v0.1
 - Fixed avatar changer (recommended to use .jpg files)
 - Fixed ASCII
 
-v0.25
+v0.2
 - Added new ASCII
 - Improved navigation speed
-- Fixed avatar changer bug
+- Fixed avatar changer bug (again lol)
 
 v1.0.0
 - Major improvements and final release of main features
 - Optimized performance and stability
 - Enhanced user interface for a smoother experience
+
+v1.0.1
+- Fixed and cleaned code..
